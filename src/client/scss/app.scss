@@ -1,0 +1,32 @@
+$theme-colors: (
+    'primary': #67DDBB,
+    'secondary': #67C4DD,
+    'info': #6789DD,
+    'warning': #BB67DD,
+    'danger': #DD67C4
+);
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 70px;
+}
+
+h4 {
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+}
+
+// .button {
+//     background-color: #ddd;
+//     border: none;
+//     color: black;
+//     padding: 10px 20px;
+//     text-align: center;
+//     text-decoration: none;
+//     display: inline-block;
+//     margin: 4px 2px;
+//     cursor: pointer;
+//     border-radius: 16px;
+//   }
