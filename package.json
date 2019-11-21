@@ -1,5 +1,5 @@
 {
-  "name": "barebones-react-typescript-express",
+  "name": "blog-full-stack-auth",
   "version": "1.0.0",
   "description": "",
   "main": "dist/server.js",
@@ -27,6 +27,7 @@
     "morgan": "^1.9.1",
     "mysql": "^2.17.1",
     "node-sass": "^4.13.0",
+    "passport-local": "^1.0.0",
     "react": "^16.11.0",
     "react-dnd": "^9.4.0",
     "react-dnd-html5-backend": "^9.4.0",
