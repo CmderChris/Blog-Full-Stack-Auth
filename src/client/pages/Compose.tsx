@@ -7,7 +7,7 @@ const Compose: React.FC<ComposeProps> = props => {
     const [content, setContent] = useState<string>('');
     const [title, setTitle] = useState<string>('');
     const [authorid, setAuthorid] = useState<string>('1');
-    const [authors, setAuthors] = useState<{ id: number, name: string }[]>([]);
+    const [authors, setAuthors] = useState<{ id: number, firstname: string }[]>([]);
     const [tagid, setTagid] = useState<string>('1');
     const [tag, setTag] = useState<{ id: number, name: string }[]>([
         {
@@ -55,7 +55,7 @@ const Compose: React.FC<ComposeProps> = props => {
                         <span className="text-info">Select User:</span>
                         <select value={authorid} onChange={e => setAuthorid(e.target.value)} className="form-control my-1 shadow-sm text-center">
                             {authors.map(author => (
-                                <option key={`author-${author.id}`} value={author.id}>{author.name}</option>
+                                <option key={`author-${author.id}`} value={author.id}>{author.firstname}</option>
                             ))}
                         </select>
 

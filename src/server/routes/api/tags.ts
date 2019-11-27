@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import db from '../db';
+import DB from '../../db';
 
 const router = Router();
 
 router.get('/', async (req, res) => {
 		try {
-            const tags:any = await db.tags.all();
+            const tags:any = await DB.tags.all();
             res.json(tags);
 		} catch (error) {
 			console.log(error);

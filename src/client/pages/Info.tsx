@@ -21,7 +21,7 @@ const Info: React.FC<InfoProps> = props => {
         (async () => {
             try {
                 let blog = await json(`/api/blogs/${props.match.params.id}`);
-                setBlog(blog);
+                setBlog(blog[0]);
                 let blogtag = await json(`/api/blogtags/${props.match.params.id}`);
                 setBlogTag(blogtag);
             } catch (error) {
