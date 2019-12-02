@@ -32,7 +32,7 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
-router.post('/', async (req, res) => {
+router.post('/', isGuest, async (req, res) => {
     try {
         let result = await DB.blogs.postBlog(req.body.title, req.body.content, req.body.authorid)
         let blogid = result.insertId
@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.put('/:blogid', async (req, res) => {
+router.put('/:blogid', isGuest, async (req, res) => {
 	let id = req.params.blogid;
     let title = req.body.title;
     let content = req.body.content;
@@ -57,7 +57,7 @@ router.put('/:blogid', async (req, res) => {
     }
 })
 
-router.delete('/:blogid', async (req, res) => {
+router.delete('/:blogid', isGuest, async (req, res) => {
     let blogid = req.params.blogid
     try {
         await DB.blogtags.destroy(blogid);

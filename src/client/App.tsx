@@ -4,7 +4,9 @@ import Home from './pages/Home';
 import Edit from "./pages/Edit";
 import Info from "./pages/Info";
 import Compose from './pages/Compose';
+import Login from './pages/Login';
 import Navbar from './components/Navbar';
+import SignUp from './pages/SignUp';
 
 const App: React.FC<IAppProps> = props => {
 	return (
@@ -15,6 +17,8 @@ const App: React.FC<IAppProps> = props => {
 				<Route exact path="/editing/:id" component={Edit} />
 				<Route exact path="/info/:id" component={Info} />
 				<Route exact path="/compose" component={Compose} />
+				<Route exact path="/login" component={Login} />
+				<Route exact path="/signup" component={SignUp} />
 			</Switch>
 		</Router>
 	);

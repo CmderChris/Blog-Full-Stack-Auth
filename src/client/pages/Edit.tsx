@@ -4,11 +4,11 @@ import { json } from '../utils/api';
 import { RouteComponentProps } from "react-router-dom";
 
 const Edit: React.FC<EditProps> = props => {
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState<string>('');
+    const [title, setTitle] = useState();
+    const [content, setContent] = useState<string>();
     const [blogtags, setBlogTags] = useState<string>('');
     const [blog, setBlog] = useState<{ id: number, title: string, content: string, author: string, _created: string }>({
-        id: 0, title: '', content: '', author: '', _created: ''
+        id: 0, title: '' , content: '', author: '', _created: ''
     });
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const Edit: React.FC<EditProps> = props => {
     const handleEdit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         try {
-            let response = await json(`/api/blogs/${props.match.params.id}`, 'PUT', {title, content});
+            let response = await json(`/api/blogs/${props.match.params.id}`, 'PUT', { title, content });
             console.log(response);
             props.history.push('/');
         } catch (error) {
@@ -53,32 +53,39 @@ const Edit: React.FC<EditProps> = props => {
                     <h1 className="text-center text-white">Edit Blog!</h1>
                 </main>
             </div>
+
             <div>
                 <div className="col-md-8 offset-md-2">
-                    <article className="card my-2 shadow-sm border border-primary">
-                        <div className="card-body text-center py-4">
+                    <form className="form-group border border-primary rounded shadow-sm p-3 mt-5">
+                        <label className="text-info">Blog Title:</label>
+                        <input
+                            type="text"
+                            defaultValue={blog.title}
+                            onChange={e => setTitle(e.target.value)}
+                            className="form-control my-1"
+                        />
 
-                            <span className="text-info">Blog Title:</span>
-                            <input type="text" defaultValue={blog.title} onChange={e => setTitle(e.target.value)}
-                            className="form-control my-1 shadow-sm" />
+                        <label className="text-info mt-2">Blog Content:</label>
+                        <textarea
+                            rows={8}
+                            defaultValue={blog.content}
+                            onChange={e => setContent(e.target.value)}
+                            className="form-control my-1"
+                        />
 
-                            <span className="text-info">Blog Content:</span>
-                            <textarea rows={8} defaultValue={blog.content} onChange={e => setContent(e.target.value)} 
-                             className="form-control my-1 shadow-sm" />
+                        <button
+                            className="btn btn-outline-primary btn-md mt-3"
+                            onClick={handleEdit}>
+                                Submit Edit!
+                        </button>
 
-                        </div>
+                        <button 
+                            className="btn btn-outline-info btn-md mx-3 mt-3" 
+                            onClick={handleDelete}>
+                                Delete Blog!
+                        </button>
 
-                        <div className="container text-center">
-                            <button className="btn btn-outline-primary btn-lg mb-3" onClick={handleEdit}>Post Edit!</button>
-                        </div>
-                        <div className="container text-center">
-                            <button className="btn btn-outline-info btn-sm mb-4" onClick={handleDelete}>Delete Blog!</button>
-                        </div>
-
-                    </article>
-                </div>
-                <div>
-
+                    </form>
                 </div>
             </div>
         </>

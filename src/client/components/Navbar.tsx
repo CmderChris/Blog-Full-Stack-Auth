@@ -11,6 +11,10 @@ const Navbar: React.FC<INavbarProps> = props => {
             <NavLink exact to="/compose" className="btn btn-outline-primary mx-2 shadow-sm" activeClassName="btn btn-primary mx-2 shadow-sm text-white">
                 Add Blog
             </NavLink>
+
+            <NavLink exact to="/login" className="btn btn-outline-primary mx-2 shadow-sm" activeClassName="btn btn-primary mx-2 shadow-sm text-white">
+                Login / Sign Up
+            </NavLink>
         </nav>
     );
 }
