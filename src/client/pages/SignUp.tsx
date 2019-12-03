@@ -63,7 +63,8 @@ const SignUp: React.FC<SignUpProps> = props => {
                             value={password} 
                             onChange={e => setPassword(e.target.value)}
                         />
-
+                        
+                        {/* 
                         <label className="text-info mt-2">Confirm Password:</label>
                         <input
                             type="password"
@@ -71,7 +72,7 @@ const SignUp: React.FC<SignUpProps> = props => {
                             placeholder="Type your password again here..."
                             value={password} 
                             onChange={e => setPassword(e.target.value)}
-                        />
+                        /> */}
 
                         <button
                             type="submit"

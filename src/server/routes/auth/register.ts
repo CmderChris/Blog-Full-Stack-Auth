@@ -14,7 +14,7 @@ router.post('/', async (req, res, next) => {
         res.json({
             token,
             role: 'guest',
-            userid: result.insertId
+            authorid: result.insertId
         })
     } catch (e) {
         console.log(e);

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { json } from '../utils/api';
+import { json, Author } from '../utils/api';
 import { RouteComponentProps } from "react-router-dom";
 
 const Edit: React.FC<EditProps> = props => {
@@ -8,16 +8,20 @@ const Edit: React.FC<EditProps> = props => {
     const [content, setContent] = useState<string>();
     const [blogtags, setBlogTags] = useState<string>('');
     const [blog, setBlog] = useState<{ id: number, title: string, content: string, author: string, _created: string }>({
-        id: 0, title: '' , content: '', author: '', _created: ''
+        id: 0, title: '', content: '', author: '', _created: ''
     });
 
     useEffect(() => {
         (async () => {
             try {
-                let blog = await json(`/api/blogs/${props.match.params.id}`);
-                setBlog(blog);
-                let blogtags = await json(`/api/blogstags/${props.match.params.id}`);
-                setBlogTags(blogtags);
+                if (!Author || Author.authorid === null || Author.role !== 'guest') {
+                    props.history.replace('/login');
+                } else {
+                    let blog = await json(`/api/blogs/${props.match.params.id}`);
+                    setBlog(blog);
+                    let blogtags = await json(`/api/blogstags/${props.match.params.id}`);
+                    setBlogTags(blogtags);
+                }
             } catch (error) {
                 console.log(error);
             }
@@ -76,13 +80,13 @@ const Edit: React.FC<EditProps> = props => {
                         <button
                             className="btn btn-outline-primary btn-md mt-3"
                             onClick={handleEdit}>
-                                Submit Edit!
+                            Submit Edit!
                         </button>
 
-                        <button 
-                            className="btn btn-outline-info btn-md mx-3 mt-3" 
+                        <button
+                            className="btn btn-outline-info btn-md mx-3 mt-3"
                             onClick={handleDelete}>
-                                Delete Blog!
+                            Delete Blog!
                         </button>
 
                     </form>

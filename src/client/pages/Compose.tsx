@@ -23,6 +23,9 @@ const Compose: React.FC<ComposeProps> = props => {
                 // setAuthors(authors);
                 let tag = await json(`/api/tags/`);
                 setTag(tag);
+                if (!Author || Author.authorid === null || Author.role !== 'guest') {
+                    props.history.replace('/login');
+                }
             } catch (error) {
                 console.log(error);
             }
@@ -63,41 +66,41 @@ const Compose: React.FC<ComposeProps> = props => {
                         </select> */}
 
                         <label className="text-info mt-2">Blog Title:</label>
-                        <input  
-                            type="text" 
-                            placeholder="Type your title here..." 
-                            value={title} 
+                        <input
+                            type="text"
+                            placeholder="Type your title here..."
+                            value={title}
                             onChange={e => setTitle(e.target.value)}
-                            className="form-control my-1" 
+                            className="form-control my-1"
                         />
-                        
+
                         <label className="text-info mt-2">Blog Content:</label>
-                        <textarea 
-                            rows={8} 
-                            placeholder="Type your content here..." 
-                            value={content} 
+                        <textarea
+                            rows={8}
+                            placeholder="Type your content here..."
+                            value={content}
                             onChange={e => setContent(e.target.value)}
-                            className="form-control my-1" 
+                            className="form-control my-1"
                         />
 
                         <label className="text-info mt-2">Select a Tag:</label>
-                        <select 
-                            value={tagid} 
-                            onChange={e => setTagid(e.target.value)} 
+                        <select
+                            value={tagid}
+                            onChange={e => setTagid(e.target.value)}
                             className="form-control my-1 text-center">
                             {tag.map((tag) => (
                                 <option key={`tag-${tag.id}`} value={tag.id}>{tag.name}</option>
                             ))}
                         </select>
 
-                        <button 
-                            className="btn btn-outline-primary btn-lg mt-3 mb-2" 
+                        <button
+                            className="btn btn-outline-primary btn-lg mt-3 mb-2"
                             onClick={handleSubmit}>
-                                Post!
+                            Post!
                         </button>
                     </form>
                 </div>
-            </div>  
+            </div>
         </>
     );
 }
