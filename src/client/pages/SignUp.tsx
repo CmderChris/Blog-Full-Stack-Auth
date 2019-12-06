@@ -36,7 +36,7 @@ const SignUp: React.FC<SignUpProps> = props => {
 
             <div>
                 <div className="col-md-8 offset-md-2">
-                    <form className="form-group border border-primary rounded shadow-sm p-3 mt-5">
+                    <form className="form-group border border-primary rounded shadow-sm p-3 mt-4">
                         <label className="text-info">First Name:</label>
                         <input
                             type="name"

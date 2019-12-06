@@ -27,7 +27,7 @@ const BlogsCard: React.FC<BlogsCardProps> = props => {
 
     return (
         <>
-            <div className="col-md-8 offset-md-2">
+            <div className="col-md-10 offset-md-1 mt-4">
                 <article className="card my-3 shadow-sm border border-primary">
                     <div className="card-header text-center bg-secondary">
                         <h4 className="card-title text-white mt-1">{props.blog.title}</h4>
@@ -35,7 +35,7 @@ const BlogsCard: React.FC<BlogsCardProps> = props => {
 
                     <div className="card-body text-center">
                         <p className="card-text text-info">{props.blog.content.substring(0, 150)}...</p>
-                        <Link to={`/info/${props.blog.id}`} className="btn btn-outline-primary btn-md mt-3">Read Blog!</Link>
+                        <Link to={{pathname: `/info/${props.blog.id}`, state: {blog: props.blog}}} className="btn btn-outline-primary btn-md mt-3">Read Blog!</Link>
                     </div>
                     <div className="card-body text-center">
                         {blogtag.map((tag, i) => {

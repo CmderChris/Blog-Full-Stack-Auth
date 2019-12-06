@@ -8,5 +8,10 @@ export default {
     },
     auth: {
         secret: process.env.SECRET
-    }
+    },
+    mailgun: {
+        apiKey: process.env.MAILGUN_KEY,
+        domain: process.env.MAILGUN_DOMAIN
+    },
+    stripeKey: process.env.STRIPE_KEY
 }

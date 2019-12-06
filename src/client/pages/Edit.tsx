@@ -4,11 +4,11 @@ import { json, Author } from '../utils/api';
 import { RouteComponentProps } from "react-router-dom";
 
 const Edit: React.FC<EditProps> = props => {
-    const [title, setTitle] = useState();
-    const [content, setContent] = useState<string>();
+    const [title, setTitle] = useState<string>('');
+    const [content, setContent] = useState<string>('');
     const [blogtags, setBlogTags] = useState<string>('');
-    const [blog, setBlog] = useState<{ id: number, title: string, content: string, author: string, _created: string }>({
-        id: 0, title: '', content: '', author: '', _created: ''
+    const [blog, setBlog] = useState<{ title: string, content: string }>({
+        title: '' , content: ''
     });
 
     useEffect(() => {
@@ -60,7 +60,7 @@ const Edit: React.FC<EditProps> = props => {
 
             <div>
                 <div className="col-md-8 offset-md-2">
-                    <form className="form-group border border-primary rounded shadow-sm p-3 mt-5">
+                    <form className="form-group border border-primary rounded shadow-sm p-3 mt-4">
                         <label className="text-info">Blog Title:</label>
                         <input
                             type="text"
@@ -96,6 +96,6 @@ const Edit: React.FC<EditProps> = props => {
     );
 }
 
-interface EditProps extends RouteComponentProps<{ id: string }> { }
+interface EditProps extends RouteComponentProps<{ id: string, title: string, content: string }> { }
 
 export default Edit;

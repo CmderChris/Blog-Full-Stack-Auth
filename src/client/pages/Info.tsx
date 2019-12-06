@@ -20,8 +20,9 @@ const Info: React.FC<InfoProps> = props => {
     useEffect(() => {
         (async () => {
             try {
-                let blog = await json(`/api/blogs/${props.match.params.id}`);
-                setBlog(blog[0]);
+                // let blog = await json(`/api/blogs/${props.match.params.id}`);
+                // setBlog(blog[0]);
+                setBlog(props.location.state.blog);
                 let blogtag = await json(`/api/blogtags/${props.match.params.id}`);
                 setBlogTag(blogtag);
             } catch (error) {
@@ -38,7 +39,7 @@ const Info: React.FC<InfoProps> = props => {
                 </main>
             </div>
 
-            <div className="col-md-10 offset-md-1">
+            <div className="col-md-10 offset-md-1 mt-4">
                 <article className="card my-2 shadow-sm border border-primary">
                     <div className="card-body text-center">
                         <p className="card-text text-justify text-info">

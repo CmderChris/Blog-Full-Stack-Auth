@@ -7,6 +7,8 @@ import Compose from './pages/Compose';
 import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import SignUp from './pages/SignUp';
+import Donate from './pages/Donate';
+import Contact from './pages/Contact';
 
 const App: React.FC<IAppProps> = props => {
 	return (
@@ -19,6 +21,8 @@ const App: React.FC<IAppProps> = props => {
 				<Route exact path="/compose" component={Compose} />
 				<Route exact path="/login" component={Login} />
 				<Route exact path="/signup" component={SignUp} />
+				<Route exact path="/donate" component={Donate} />
+				<Route exact path="/contact" component={Contact} />
 			</Switch>
 		</Router>
 	);

@@ -24,7 +24,7 @@ const Compose: React.FC<ComposeProps> = props => {
                 let tag = await json(`/api/tags/`);
                 setTag(tag);
                 if (!Author || Author.authorid === null || Author.role !== 'guest') {
-                    props.history.replace('/login');
+                    props.history.replace('/login', {msg:'You must be logged in to view this page!'});
                 }
             } catch (error) {
                 console.log(error);
@@ -53,7 +53,7 @@ const Compose: React.FC<ComposeProps> = props => {
 
             <div>
                 <div className="col-md-8 offset-md-2">
-                    <form className="form-group border border-primary rounded shadow-sm p-3 mt-5">
+                    <form className="form-group border border-primary rounded shadow-sm p-3 mt-4">
 
                         {/* <label className="text-info">Select User:</label>
                         <select 
