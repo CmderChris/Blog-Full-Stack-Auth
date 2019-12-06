@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { json } from '../utils/api';
-import { RouteComponentProps } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import * as moment from 'moment';
-import { IBlogTags } from '../utils/interface'
 
 const BlogsCard: React.FC<BlogsCardProps> = props => {
     const [blogtag, setBlogTag] = useState<{ id: number, name: string }[]>([

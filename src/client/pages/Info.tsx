@@ -4,7 +4,6 @@ import { json } from '../utils/api';
 import { RouteComponentProps } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import * as moment from 'moment';
-import { IBlogTags } from '../utils/interface'
 
 const Info: React.FC<InfoProps> = props => {
     const [blog, setBlog] = useState<{ id: number, title: string, content: string, author: string, _created: string }>({
