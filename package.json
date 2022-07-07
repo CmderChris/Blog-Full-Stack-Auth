@@ -41,7 +41,7 @@
     "jsonwebtoken": "^8.5.1",
     "mailgun-js": "^0.22.0",
     "mdbootstrap": "^4.10.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "morgan": "^1.9.1",
     "mysql": "^2.17.1",
     "node": "^13.3.0",
